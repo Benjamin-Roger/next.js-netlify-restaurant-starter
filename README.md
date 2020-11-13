@@ -27,7 +27,7 @@ npm run local
 ```
 In a local environment, logging into the amdin pages does not require authentication, feel free to test it out !
 
-Deploy it to the cloud with [Vercel](https://vercel.com/import/project?template=https://github.com/Benjamin-Roger/next-netlify-restaurant-starter.git) ([Documentation](https://nextjs.org/docs/deployment)).
+Deploy this project with Vercel [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/Benjamin-Roger/next-netlify-restaurant-starter.git) ([Documentation](https://nextjs.org/docs/deployment)).
 
 Unfortunately, Netlify CMS cannot host this project as it does not manage the [Image component designed by Next])(https://nextjs.org/docs/api-reference/next/image), that allows the optimization of uploaded images.
 
