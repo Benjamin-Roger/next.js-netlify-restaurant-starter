@@ -1,0 +1,251 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+  identity_url: "https://next-netlify-restaurant-starter-admin.netlify.app/.netlify/identity"
+  gateway_url: "https://next-netlify-restaurant-starter-admin.netlify.app/.netlify/git"
+
+media_folder: public/images
+public_folder: /images
+publish_mode: editorial_workflow
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "content/home.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - {
+              label: "Hero Image",
+              name: "heroImage",
+              widget: "image",
+              required: true,
+            }
+          - { label: "About Body", name: "aboutBody", widget: "markdown" }
+          - {
+              label: "About - Image",
+              name: "aboutImage",
+              widget: "image",
+              default: /static/about.png",
+            }
+          - label: "Cards"
+            name: "cards"
+            widget: "list"
+            max: 4
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "Cards - Image",
+              name: "cardsBackgroundImage",
+              widget: "image",
+              default: "/static/bbq.jpg",
+            }
+          - { label: "Menu", name: "menuBody", widget: "markdown" }
+          - {
+              label: "Menu - Image",
+              name: "menuImage",
+              widget: "image",
+              default: "/static/meal.jpg",
+            }
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.image}}"
+            max: 6
+            field: { label: Image, name: image, widget: image }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            max: 4
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: Image, name: image, widget: image }
+          - {
+              label: "Testimonials - Image",
+              name: "testimonialsBackgroundImage",
+              widget: "image",
+              default: "/static/testimonial.jpg",
+            }
+      - label: "About"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "Hero Image",
+              name: "heroImage",
+              widget: "image",
+              required: true,
+            }
+      - label: "Menu"
+        name: "menu"
+        file: "content/menu.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "Hero Image",
+              name: "heroImage",
+              widget: "image",
+              required: true,
+            }
+      - label: "Blog"
+        name: "blog"
+        file: "content/blog.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "SEO Description", name: "description", widget: "string" }
+          - { label: "Publish Date", name: "date", widget: "datetime" }
+          - { label: "Body", name: "body", widget: "markdown" }
+  - label: "Blog"
+    name: "blog"
+    folder: "content/blogPosts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "SEO Description", name: "description", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          required: true,
+        }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "object",
+          required: true,
+          field:
+            {
+              label: Name,
+              name: name,
+              widget: string,
+              default: "Next Restaurant",
+            },
+        }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: true,
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+  - label: "Food"
+    name: "food"
+    folder: "content/foodItems"
+    slug: "{{slug}}"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          required: true,
+        }
+      - { label: "Price", name: "price", widget: "number", required: true }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options: ["Food", "Drinks", "Desserts"],
+          default: "Food",
+        }
+  - name: "configuration"
+    label: "Configuration"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "General information"
+        file: "content/data/config.json"
+        description: "Information regarding the restaurant"
+        fields:
+          - label: "Name"
+            name: "name"
+            required: true
+            widget: "string"
+          - label: "Logo"
+            name: "logo"
+            required: true
+            widget: "image"
+            default: "/images/logo-black.svg"
+          - label: "Logo Footer"
+            name: "logoFooter"
+            widget: "image"
+            required: false
+          - label: "Address"
+            name: "address"
+            widget: "string"
+          - label: "Email"
+            name: "email"
+            widget: "string"
+          - label: "Phone"
+            name: "phone"
+            widget: "string"
+          - label: "Facebook"
+            name: "facebook"
+            widget: "object"
+            fields:
+              - { label: "Facebook page name", name: "name", widget: "string" }
+              - { label: "Facebook page URL", name: "url", widget: "string" }
+          - label: "Opening times"
+            name: "openingTimes"
+            widget: "string"
+          - label: "Map"
+            name: "map"
+            widget: "map"
+          - label: "Get form action"
+            name: "getFormAction"
+            widget: "string"
+            hint: "Get this link on getform.io"
+          - label: "Number of posts per blog page"
+            name: "postsPerPage"
+            widget: "number"
+            min: 2
+            max: 6
+            default: 3
+            required: true
+            hint: "The minimum is 2"
+      - name: "seo"
+        label: "SEO  Config"
+        file: "content/data/SEO.json"
+        description: "General SEO settings"
+        fields:
+          - label: "URL"
+            name: "baseUrl"
+            widget: "string"
+            hint: "Do not enter the trailing slash of the URL. Enter the https:// at the beginning"
+          - label: "Site title"
+            name: "siteTitle"
+            widget: "string"
+            required: true
+          - label: "Default site description"
+            name: "defaultSiteDescription"
+            widget: "string"

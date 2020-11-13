@@ -1,0 +1,16 @@
+{
+  "facebook": {
+    "name": "John Smith",
+    "url": "https://www.facebook.com/"
+  },
+  "logoFooter": "/images/logo-white.svg",
+  "logo": "/images/logo-black.svg",
+  "name": "Next Restaurant",
+  "openingTimes": "9am - 10pm",
+  "phone": "+33 1 23 45 67 89",
+  "getFormAction": "https://getform.io/f/b65a49eb-669c-4006-940a-8ad99b9bec03",
+  "address": "5 rue des Suisses 75014 Paris",
+  "postsPerPage": 3,
+  "map": "{\"type\":\"Point\",\"coordinates\":[2.314373,48.8307606]}",
+  "email": "john@smith.com"
+}

@@ -1,0 +1,53 @@
+@import "default";
+@import "fonts";
+
+body {
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.textWhite > * {
+  @apply text-white;
+}
+
+.darkOverlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+section.decorated {
+  overflow: hidden;
+  position: relative;
+}
+
+section.decorated::before,
+section.decorated::after {
+  display: block;
+  position: absolute;
+  opacity: 0.2;
+  height: 20vmax;
+  width: 20vmax;
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+section.decorated::before {
+  top: -5vmax;
+  left: -5vmax;
+  background-image: url("/static/mixed.png");
+}
+
+section.decorated::after {
+  bottom: -5vmax;
+  right: -5vmax;
+  background-image: url("/static/chili.png");
+}

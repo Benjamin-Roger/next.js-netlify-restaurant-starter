@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://next-netlify-restaurant-starter-example.vercel.app",
+  "siteTitle": "Next - Restaurant Starter Theme with Netlify CMS",
+  "defaultSiteDescription": "This is a theme made with Next.js for restaurants and similar businesses, easily editable with Netlify CMS."
+}
