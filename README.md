@@ -31,7 +31,7 @@ In a local environment, logging into the amdin pages does not require authentica
 
 Deploy this project with Vercel [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/Benjamin-Roger/next-netlify-restaurant-starter.git) ([Documentation](https://nextjs.org/docs/deployment)).
 
-Unfortunately, Netlify CMS cannot host this project as it does not manage the [Image component designed by Next])(https://nextjs.org/docs/api-reference/next/image), that allows the optimization of uploaded images.
+Unfortunately, Netlify CMS cannot host this project as it does not manage the [Image component designed by Next](https://nextjs.org/docs/api-reference/next/image), that allows the optimization of uploaded images.
 
 This version uses Netlify-hosted authentication features with Git Gateway. You can follow the instructions in this Stack Overflow thread to adapt it to your own website https://stackoverflow.com/questions/52174873/using-netlifys-hosted-identity-service-with-self-hosted-netlify-cms.
 
